@@ -25,4 +25,17 @@ volumes:
   mode: ReadWriteOnce
   
 properties:
-  revision : 04
+  DB_USER_ADMIN: admin
+  DB_USER_ADMIN_PASSWORD: 
+    vault: DB_USER_ADMIN_PASSWORD
+  MONGO_USER_PASSWORD: 
+    vault: MONGO_USER_PASSWORD
+  AUTH_KEY: 
+    vault: AUTH_KEY
+  REPLICATION: 3
+  
+  MONGODB_HOST: 127.0.0.1
+  MONGODB_PORT: 27017
+
+  MASTER_ENABLE: no
+  revision : 10
