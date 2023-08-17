@@ -8,7 +8,7 @@ build:
   env: DEV
   build_file: none
   output_files: output/*.zip
-  image_template: mongo-4.4
+  image_template: mongo-4.2
   
 deploy:
   context: justathul/DEV
@@ -38,4 +38,4 @@ properties:
   MONGODB_PORT: 27017
 
   MASTER_ENABLE: no
-  revision : 10
+  revision : 11
