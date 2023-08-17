@@ -4,7 +4,7 @@ app:
   notify: apsuresh@ecloudcontrol.com
 
 build:
-  version: 4.4
+  version: 4.2
   env: DEV
   build_file: none
   output_files: output/*.zip
