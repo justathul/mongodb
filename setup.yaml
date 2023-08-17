@@ -1,5 +1,5 @@
 users:
-  - name: admin
+  - name: test1
     password: $MONGO_USER_PASSWORD
 
 databases:
@@ -7,5 +7,5 @@ databases:
 
 acl:
   - database: testdatadb
-    user: admin
+    user: test1
     access: dbOwner
