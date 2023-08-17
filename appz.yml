@@ -24,6 +24,18 @@ volumes:
   size: 5Gi
   mode: ReadWriteOnce
   
+- claim: mongo-keys
+  mount: /appz/keys
+  name: mongo-keys
+  size: 1Gi
+  mode: ReadWriteOnce
+  
+- claim: mongo-backup
+  mount: /appz/backup
+  name: mongo-backup
+  size: 5Gi
+  mode: ReadWriteOnce
+  
 properties:
   DB_USER_ADMIN: admin
   DB_USER_ADMIN_PASSWORD: 
