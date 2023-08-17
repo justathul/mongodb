@@ -13,7 +13,7 @@ build:
 deploy:
   context: justathul/DEV
   type: statefulset
-  replicas: 1
+  replicas: 3
   port:
   - 27017
 
