@@ -21,14 +21,14 @@ volumes:
 - claim: mongo-data
   mount: /appz/data
   name: mongo-data
-  size: 512Gi
+  size: 5Gi
   mode: ReadWriteOnce
   matchLabels: false
   
 - claim: mongo-keys
   mount: /appz/keys
   name: mongo-keys
-  size: 10Gi
+  size: 5Gi
   mode: ReadWriteOnce
   matchLabels: false
   
