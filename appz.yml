@@ -48,4 +48,4 @@ properties:
   MONGODB_PORT: 27017
 
   MASTER_ENABLE: 'yes'
-  revision : 21
+  revision : 1
