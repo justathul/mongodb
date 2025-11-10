@@ -1,14 +1,13 @@
 app:
-  name: AppzMongoDB
-  code: AMDB
-  notify: apsuresh@ecloudcontrol.com
-
+  name: mongo
+  code: MONGO
+                            
 build:
-  version: 4.2
+  version: 8.0
   env: DEV
   build_file: none
   output_files: output/*.zip
-  image_template: mongo-4.2
+  image_template: mongo-8.0
   
 deploy:
   context: justathul/DEV
@@ -16,25 +15,22 @@ deploy:
   replicas: 3
   port:
   - 27017
+  - 9216
 
 volumes:
 - claim: mongo-data
   mount: /appz/data
   name: mongo-data
-  size: 5Gi
+  size: 512Gi
   mode: ReadWriteOnce
+  matchLabels: false
   
 - claim: mongo-keys
   mount: /appz/keys
   name: mongo-keys
-  size: 1Gi
+  size: 10Gi
   mode: ReadWriteOnce
-  
-- claim: mongo-backup
-  mount: /appz/backup
-  name: mongo-backup
-  size: 5Gi
-  mode: ReadWriteOnce
+  matchLabels: false
   
 properties:
   DB_USER_ADMIN: admin
@@ -45,9 +41,11 @@ properties:
   AUTH_KEY: 
     vault: AUTH_KEY
   REPLICATION: 3
+  REPLICA_SET_NAME: rs0 
+  AUTH_ENABLE: 1
   
   MONGODB_HOST: 127.0.0.1
   MONGODB_PORT: 27017
 
-  MASTER_ENABLE: no
-  revision : 12
+  MASTER_ENABLE: 'yes'
+  revision : 21
