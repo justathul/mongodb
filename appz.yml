@@ -1,13 +1,13 @@
 app:
-  name: mongo
-  code: MONGO
-                            
+  name: mongodb
+  code: MONGODB
+
 build:
-  version: 8.0
+  version: 6.0
   env: DEV
   build_file: none
   output_files: output/*.zip
-  image_template: mongo-8.0
+  image_template: mongo-6.0
   
 deploy:
   context: justathul/DEV
@@ -23,14 +23,18 @@ volumes:
   name: mongo-data
   size: 5Gi
   mode: ReadWriteOnce
-  matchLabels: false
   
 - claim: mongo-keys
   mount: /appz/keys
   name: mongo-keys
+  size: 1Gi
+  mode: ReadWriteOnce
+  
+- claim: mongo-backup
+  mount: /appz/backup
+  name: mongo-backup
   size: 5Gi
   mode: ReadWriteOnce
-  matchLabels: false
   
 properties:
   DB_USER_ADMIN: admin
@@ -41,11 +45,11 @@ properties:
   AUTH_KEY: 
     vault: AUTH_KEY
   REPLICATION: 3
-  REPLICA_SET_NAME: rs0 
+  MASTER_ENABLE: "no"
   AUTH_ENABLE: 1
   
   MONGODB_HOST: 127.0.0.1
   MONGODB_PORT: 27017
-
-  MASTER_ENABLE: 'yes'
-  revision : 2
+  MONGO_BACKUP_TIME: 2
+  MONGO_BACKUP_DAYS: 7
+  revision: 01
