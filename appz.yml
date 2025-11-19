@@ -45,7 +45,7 @@ properties:
   AUTH_KEY: 
     vault: AUTH_KEY
   REPLICATION: 3
-  MASTER_ENABLE: "no"
+  MASTER_ENABLE: "yes"
   AUTH_ENABLE: 1
   
   MONGODB_HOST: 127.0.0.1
